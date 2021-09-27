@@ -123,5 +123,7 @@ public class PlayerShoot : MonoBehaviour
     void CreateLazerShot(GameObject lazer, Vector3 pos, Vector3 rot) //translating 'pooled' lazer shot to the defined position in the defined rotation
     {
         SpawnAmmo(pos, Quaternion.Euler(rot));
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
+        audio.Play();
     }
 }

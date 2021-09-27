@@ -30,7 +30,7 @@ public class Boundary : MonoBehaviour {
     {        
         if (collision.tag == "Projectile")
         {
-            Destroy(collision.gameObject);
+            gameObject.SetActive(false);
         }
         else if (collision.tag == "Bonus") 
             Destroy(collision.gameObject); 

@@ -11,10 +11,12 @@ public class Player : MonoBehaviour
 {
     public GameObject destructionFX;
 
-    public static Player instance; 
+    public static Player instance;
+    Health H = null;
 
     private void Awake()
     {
+        H = GetComponent<Health>();
         if (instance == null) 
             instance = this;
     }
@@ -22,7 +24,12 @@ public class Player : MonoBehaviour
     //method for damage proceccing by 'Player'
     public void GetDamage(int damage)   
     {
-        Destruction();
+        //Uses Health to give Player "3" lives
+        H.HealthPoints -= 33;
+        if (H.HealthPoints == 1)
+        {
+            Destruction();
+        }
     }    
 
     //'Player's' destruction procedure
