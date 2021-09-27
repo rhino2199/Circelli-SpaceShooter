@@ -70,6 +70,7 @@ public class PlayerShoot : MonoBehaviour
             if (Time.time > nextFire)
             {
                 MakeAShot();
+                Debug.Log(instance.AmmoQueue.Count);
                 nextFire = Time.time + 1 / fireRate;
             }
         }

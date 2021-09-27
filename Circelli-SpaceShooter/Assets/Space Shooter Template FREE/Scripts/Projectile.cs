@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour {
 
     [Tooltip("Whether the projectile is destroyed in the collision, or not")]
     public bool destroyedByCollision;
+    
 
     private void OnTriggerEnter2D(Collider2D collision) //when a projectile collides with another object
     {

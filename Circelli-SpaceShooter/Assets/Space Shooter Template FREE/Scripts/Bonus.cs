@@ -7,9 +7,9 @@ public class Bonus : MonoBehaviour {
     {
         if (collision.tag == "Player") 
         {
-            if (PlayerShooting.instance.weaponPower < PlayerShooting.instance.maxweaponPower)
+            if (PlayerShoot.instance.weaponPower < PlayerShoot.instance.maxweaponPower)
             {
-                PlayerShooting.instance.weaponPower++;
+                PlayerShoot.instance.weaponPower++;
             }
             Destroy(gameObject);
         }
