@@ -30,9 +30,9 @@ public class BoundsLock : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         const int cubeDepth = 1;
-        Vector3 boundsCenter = new Vector3(levelBounds.xMin + levelBounds.width * 0.5f, 0.0f, levelBounds.yMin + levelBounds.height * 0.5f);
+        Vector3 boundsCenter = new Vector3(levelBounds.xMin + levelBounds.width * 0.5f, levelBounds.yMin + levelBounds.height * 0.5f, 0.0f);
 
-        Vector3 boundsHeight = new Vector3(levelBounds.width, cubeDepth, levelBounds.height);
+        Vector3 boundsHeight = new Vector3(levelBounds.width, levelBounds.height, cubeDepth);
 
         Gizmos.DrawWireCube(boundsCenter, boundsHeight);
     }//End onDrawGizmosSelected
