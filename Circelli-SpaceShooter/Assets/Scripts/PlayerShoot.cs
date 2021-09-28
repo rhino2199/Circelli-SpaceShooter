@@ -1,4 +1,15 @@
-﻿using System;
+﻿/****
+ * Created by: Ryan Circelli
+ * Date Created: Sept 26, 2021
+ * 
+ * Last Edited By: Ryan Circelli
+ * Last Updated Sept 28,2021
+ * 
+ * Description:Player control Movements and Health and controls
+ * 
+ */
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,18 +26,11 @@ public class Guns
 public class PlayerShoot : MonoBehaviour
 {
 
-    [Tooltip("shooting frequency. the higher the more frequent")]
-    public float fireRate;
-
-    [Tooltip("projectile prefab")]
+    
     public GameObject projectileObject;
-
     //time for a new shot
     [HideInInspector] public float nextFire;
 
-
-    [Tooltip("current weapon power")]
-    [Range(1, 4)]       //change it if you wish
     public int weaponPower = 1;
 
     public int PoolSize = 100;
@@ -53,7 +57,7 @@ public class PlayerShoot : MonoBehaviour
             AmmoArray[i].SetActive(false);
         }
     }
-    private void Start()
+    private void Start() // Written by asset provider
     {
         //receiving shooting visual effects components
         guns.leftGunVFX = guns.leftGun.GetComponent<ParticleSystem>();
@@ -67,16 +71,11 @@ public class PlayerShoot : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Time.time > nextFire)
-            {
-                MakeAShot();
-                Debug.Log(instance.AmmoQueue.Count);
-                nextFire = Time.time + 1 / fireRate;
-            }
+           MakeAShot();
         }
     }
 
-    //method for a shot
+    //method for a shot // Written by asset provider
     void MakeAShot()
     {
         switch (weaponPower) // according to weapon power 'pooling' the defined anount of projectiles, on the defined position, in the defined rotation

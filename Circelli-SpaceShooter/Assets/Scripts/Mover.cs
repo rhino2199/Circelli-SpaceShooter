@@ -3,7 +3,7 @@
  * Date Created: Sept 20, 2021
  * 
  * Last Edited By: Ryan Circelli
- * Last Updated Sept 20,2021
+ * Last Updated Sept 28,2021
  * 
  * Description:Continuosly moves the object
  * 
@@ -27,6 +27,6 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * MaxSpeed * Time.deltaTime;
+        transform.position += new Vector3(0.0f, 1f, 0.0f) * MaxSpeed * Time.deltaTime;
     }//end update
 }
