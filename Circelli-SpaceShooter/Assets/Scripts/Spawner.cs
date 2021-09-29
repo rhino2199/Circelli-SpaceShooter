@@ -19,17 +19,18 @@ public class Spawner : MonoBehaviour
 {
     //Variables
 
-    public float MaxRadius = 10f;
-    public float Interval = 5f;
+    public float Interval = 3f;
     public GameObject ObjToSpawn = null;
     private Transform Origin = null;
+    //Times to increace the spawning rate of enemies as the level progesses
+    public float[] SpawnIncreaceTimes = new float[10];
   
 
 
 
     private void Awake()
     {
-        Origin = GameObject.FindGameObjectWithTag("Player").transform;
+        Origin = transform;
     }
 
     private void Start()
@@ -39,9 +40,10 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        if (Origin == null){return;}
-        Vector3 SpawnPos = Origin.position + Random.onUnitSphere * MaxRadius;
-        SpawnPos = new Vector3(SpawnPos.x, 0f, SpawnPos.z);
+       float xPos = Random.Range(-4.5f, 4.6f);
+        float yPos = Random.Range(3.5f, 5.6f);
+        //Ask about searching for other enemies in potential spawn postition
+        Vector3 SpawnPos = new Vector3(xPos, yPos, 0.0f);
         Instantiate(ObjToSpawn, SpawnPos, Quaternion.identity);
     }
 }

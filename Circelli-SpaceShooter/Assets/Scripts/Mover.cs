@@ -15,7 +15,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Mover : MonoBehaviour
-{
+{ 
+    public float direction;
+
     //Variables
     public float MaxSpeed = 10f;
     // Start is called before the first frame update
@@ -27,6 +29,6 @@ public class Mover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0.0f, 1f, 0.0f) * MaxSpeed * Time.deltaTime;
+        transform.position += new Vector3(0.0f, direction, 0.0f) * MaxSpeed * Time.deltaTime;
     }//end update
 }
