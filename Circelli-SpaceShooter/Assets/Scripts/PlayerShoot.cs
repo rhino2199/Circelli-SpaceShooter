@@ -3,7 +3,7 @@
  * Date Created: Sept 26, 2021
  * 
  * Last Edited By: Ryan Circelli
- * Last Updated Sept 28,2021
+ * Last Updated Oct 2,2021
  * 
  * Description:Player control Movements and Health and controls
  * 
@@ -38,7 +38,6 @@ public class PlayerShoot : MonoBehaviour
     private GameObject[] AmmoArray;
 
     public Guns guns;
-    bool shootingIsActive = true;
     [HideInInspector] public int maxweaponPower = 4;
     public static PlayerShoot instance;
 
@@ -46,7 +45,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-
+        //Creates ammo pool
         AmmoArray = new GameObject[PoolSize];
         for (int i = 0; i < PoolSize; i++)
         {
@@ -66,7 +65,7 @@ public class PlayerShoot : MonoBehaviour
 
     }
 
-
+    //Checks for shoot button
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -109,6 +108,7 @@ public class PlayerShoot : MonoBehaviour
         }
     }
 
+    //Spawn instance of ammo from pool
     public static Transform SpawnAmmo(Vector3 Position, Quaternion Rotation)
     {
         Transform SpawnedAmmo = instance.AmmoQueue.Dequeue();
@@ -119,6 +119,7 @@ public class PlayerShoot : MonoBehaviour
         return SpawnedAmmo;
     }
 
+    //Spawns ammo and plays shooting sound
     void CreateLazerShot(GameObject lazer, Vector3 pos, Vector3 rot) //translating 'pooled' lazer shot to the defined position in the defined rotation
     {
         SpawnAmmo(pos, Quaternion.Euler(rot));

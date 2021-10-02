@@ -27,6 +27,7 @@ public class BoundsLock : MonoBehaviour
 
     }
 
+    //Gizmo for viewing the bounds
     private void OnDrawGizmosSelected()
     {
         const int cubeDepth = 1;

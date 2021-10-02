@@ -3,7 +3,7 @@
  * Date Created: Sept 27, 2021
  * 
  * Last Edited By: Ryan Circelli
- * Last Updated Sept 28,2021
+ * Last Updated Oct 2,2021
  * 
  * Description:Player control Movements and Health and controls
  * 
@@ -39,6 +39,7 @@ public class PlayerControl : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Moving the player along the Horz Axis
         float Horz = Input.GetAxis(HorzAxis);
         Vector3 MoveDirection = new Vector3(Horz, 0.0f, 0.0f);
         CurrentPos = ThisBody.position;
@@ -61,5 +62,11 @@ public class PlayerControl : MonoBehaviour
     {
         Instantiate(destructionFX, transform.position, Quaternion.identity); //generating destruction visual effect and destroying the 'Player' object
         Destroy(gameObject);
+    }
+
+    //Calls GameOver when Player is destroyed
+    private void OnDestroy()
+    {
+        GameManager.GameOver();
     }
 }

@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
     public GameObject DeathParticlesPrefab = null;
 
 
+    //Handles object health and death explosions
     public float HealthPoints { 
         get { return _HealthPoints; }
         set { _HealthPoints = value;
@@ -43,13 +44,3 @@ public class Health : MonoBehaviour
         }
     }//end public health points
 
-    // Update is called once per frame
-    void Update()
-    {
-       //Debug health test
-      /* if (Input.GetKeyDown(KeyCode.Space))
-        {
-            HealthPoints = 0;
-        }//end debug*/
-    }
-}
