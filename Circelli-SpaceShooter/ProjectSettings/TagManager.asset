@@ -15,6 +15,7 @@ TagManager:
   - PlayerRay
   - Rocket
   - Bounds
+  - UI
   layers:
   - Default
   - TransparentFX

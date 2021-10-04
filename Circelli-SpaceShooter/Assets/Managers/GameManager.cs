@@ -122,6 +122,16 @@ public class GameManager : MonoBehaviour
         gm.Invoke("NewScene", gm.LoadTime);
     }
 
+    private void OnLevelWasLoaded(int level)
+    {
+        GameObject[] UIObjects = GameObject.FindGameObjectsWithTag("UI");       
+        ScoreText = null;
+        GameOverText = null;
+        LevelCompleteText = null;
+        Lives = new GameObject[3];
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     //Plays an object explosion
     public static void ObjectDestroyed()
     {

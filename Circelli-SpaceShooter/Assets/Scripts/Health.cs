@@ -24,9 +24,12 @@ public class Health : MonoBehaviour
 
 
     //Handles object health and death explosions
-    public float HealthPoints { 
+    public float HealthPoints
+    {
         get { return _HealthPoints; }
-        set { _HealthPoints = value;
+        set
+        {
+            _HealthPoints = value;
             if (_HealthPoints <= 0)
             {
                 SendMessage("Die", SendMessageOptions.DontRequireReceiver);
@@ -44,3 +47,4 @@ public class Health : MonoBehaviour
         }
     }//end public health points
 
+}
