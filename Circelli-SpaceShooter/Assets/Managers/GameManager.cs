@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
     public string ScorePrefix = string.Empty;
     public string ScorePostfix = string.Empty;
     public TMP_Text ScoreText = null;
-    public TMP_Text GameOverText = null;
-    public TMP_Text LevelCompleteText = null;
+    public GameObject GameOverText = null;
+    public GameObject LevelCompleteText = null;
     public GameObject[] Lives = new GameObject[3];
 
     public GameObject Player;
@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
     public float LoadTime = 3;
     //True if the game ended in a game over and scene1 is loaded
     private bool GO = false;
-
 
 
     private void Awake()
@@ -124,11 +123,16 @@ public class GameManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        GameObject[] UIObjects = GameObject.FindGameObjectsWithTag("UI");       
-        ScoreText = null;
-        GameOverText = null;
-        LevelCompleteText = null;
-        Lives = new GameObject[3];
+        Score = 0;
+        ScoreText = GameObject.Find("Canvas/ScoreText").GetComponent<TMP_Text>();
+        GameOverText = GameObject.Find("Canvas/GameOverText");
+        LevelCompleteText = GameObject.Find("Canvas/LevelCompleteText");
+        Lives[0] = GameObject.Find("Canvas/Life1");
+        Lives[0].SetActive(true);
+        Lives[1] = GameObject.Find("Canvas/Life2");
+        Lives[1].SetActive(true);
+        Lives[2] = GameObject.Find("Canvas/Life3");
+        Lives[2].SetActive(true);
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -144,10 +148,12 @@ public class GameManager : MonoBehaviour
         if (GO)
         {
             SceneManager.LoadScene("Scene1");
+            currentLevel = 1;
         }
         else
-        {
+        {   currentLevel += 1;
             SceneManager.LoadScene("Scene2");
+            
         }
     }
 }
