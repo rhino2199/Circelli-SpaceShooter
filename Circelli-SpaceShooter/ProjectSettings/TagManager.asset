@@ -16,6 +16,7 @@ TagManager:
   - Rocket
   - Bounds
   - UI
+  - Manager
   layers:
   - Default
   - TransparentFX

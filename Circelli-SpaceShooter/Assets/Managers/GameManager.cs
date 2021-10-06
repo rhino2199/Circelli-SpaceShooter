@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        DontDestroyOnLoad(this);
     }
     #endregion
         // UI Elements
@@ -124,7 +123,7 @@ public class GameManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         Score = 0;
-        ScoreText = GameObject.Find("Canvas/ScoreText").GetComponent<TMP_Text>();
+        /*ScoreText = GameObject.Find("Canvas/ScoreText").GetComponent<TMP_Text>();
         GameOverText = GameObject.Find("Canvas/GameOverText");
         LevelCompleteText = GameObject.Find("Canvas/LevelCompleteText");
         Lives[0] = GameObject.Find("Canvas/Life1");
@@ -134,6 +133,7 @@ public class GameManager : MonoBehaviour
         Lives[2] = GameObject.Find("Canvas/Life3");
         Lives[2].SetActive(true);
         Player = GameObject.FindGameObjectWithTag("Player");
+        */
     }
 
     //Plays an object explosion
