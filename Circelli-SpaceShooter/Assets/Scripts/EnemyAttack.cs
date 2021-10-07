@@ -22,7 +22,7 @@ public class EnemyAttack : MonoBehaviour
     public bool Destroyed = true;
     private bool Attacking = false;
     //Upperbound of random attack time range
-    public float AttackRange = 3.0f;
+    public float AttackRange = 2.0f;
     //Speed of attacking enemies
     public int AttackSpeed = 5;
     bool right;
@@ -34,15 +34,12 @@ public class EnemyAttack : MonoBehaviour
 
     public void Awake()
     {
-        Invoke("Attack", Random.Range(1f, AttackRange));
+        Invoke("Attack", Random.Range(0.0f, AttackRange));
     }
 
     // Update is called once per frame
     void Update()
     {
-        //If attacking enemy moves down towards the player
-        //Could Add enemy type that gtoes directly toward the player
-        //Could make health for enemies that get past the player
         if (Attacking)
         {
             transform.position += new Vector3(0.0f, -1, 0.0f) * AttackSpeed * Time.deltaTime;

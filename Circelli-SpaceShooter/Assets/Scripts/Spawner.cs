@@ -34,6 +34,11 @@ public class Spawner : MonoBehaviour
         Origin = transform;
     }
 
+    public void GameOver()
+    {
+        CancelInvoke();
+    }
+
     private void Start()
     {
         InvokeRepeating("Spawn", 0f, Interval);

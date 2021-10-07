@@ -40,6 +40,8 @@ public class PlayerShoot : MonoBehaviour
     public Guns guns;
     [HideInInspector] public int maxweaponPower = 4;
     public static PlayerShoot instance;
+    bool CanFire = true;
+    public float ReloadTime;
 
     private void Awake()
     {
@@ -68,10 +70,17 @@ public class PlayerShoot : MonoBehaviour
     //Checks for shoot button
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && CanFire)
         {
-           MakeAShot();
+            MakeAShot();
+            CanFire = false;
+            Invoke("Reload", ReloadTime);
         }
+    }
+
+    void Reload()
+    {
+        CanFire = true;
     }
 
     //method for a shot // Written by asset provider

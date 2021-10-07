@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     public float LoadTime = 3;
     //True if the game ended in a game over and scene1 is loaded
     private bool GO = false;
+    public Spawner Spawn;
 
 
     private void Awake()
@@ -104,6 +105,7 @@ public class GameManager : MonoBehaviour
     //Makes player invinicible while new level is loaded
     public void LevelComplete()
     {
+        gm.Spawn.GameOver();
         PlayerHealth.HealthPoints = 100000;
         gm.LevelCompleteText.gameObject.SetActive(true);
         Invoke("NewScene", LoadTime);
@@ -112,6 +114,7 @@ public class GameManager : MonoBehaviour
     //Called when the player loses
     public static void GameOver()
     {
+        gm.Spawn.GameOver();
         if(gm.GameOverText != null)
         {
             gm.GameOverText.gameObject.SetActive(true);
@@ -123,17 +126,6 @@ public class GameManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         Score = 0;
-        /*ScoreText = GameObject.Find("Canvas/ScoreText").GetComponent<TMP_Text>();
-        GameOverText = GameObject.Find("Canvas/GameOverText");
-        LevelCompleteText = GameObject.Find("Canvas/LevelCompleteText");
-        Lives[0] = GameObject.Find("Canvas/Life1");
-        Lives[0].SetActive(true);
-        Lives[1] = GameObject.Find("Canvas/Life2");
-        Lives[1].SetActive(true);
-        Lives[2] = GameObject.Find("Canvas/Life3");
-        Lives[2].SetActive(true);
-        Player = GameObject.FindGameObjectWithTag("Player");
-        */
     }
 
     //Plays an object explosion
@@ -151,9 +143,15 @@ public class GameManager : MonoBehaviour
             currentLevel = 1;
         }
         else
-        {   currentLevel += 1;
-            SceneManager.LoadScene("Scene2");
-            
+        {   
+            if(currentLevel == 1)
+            {
+                SceneManager.LoadScene("Scene2");
+            }
+            else
+            {
+                SceneManager.LoadScene("Scene3");
+            }
         }
     }
 }
