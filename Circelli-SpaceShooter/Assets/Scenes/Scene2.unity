@@ -509,6 +509,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1427923131862829833, guid: 6f30eee46f49f244ebda1bc279a4883f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427983304387655731, guid: 6f30eee46f49f244ebda1bc279a4883f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428274502906686951, guid: 6f30eee46f49f244ebda1bc279a4883f,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f30eee46f49f244ebda1bc279a4883f, type: 3}
 --- !u!1 &1230385269194456057 stripped

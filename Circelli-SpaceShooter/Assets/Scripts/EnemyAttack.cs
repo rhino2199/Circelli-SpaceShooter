@@ -25,6 +25,12 @@ public class EnemyAttack : MonoBehaviour
     public float AttackRange = 3.0f;
     //Speed of attacking enemies
     public int AttackSpeed = 5;
+    bool right;
+
+    private void Start()
+    {
+        right = (Random.Range(1, 3) % 2 == 0);
+    }
 
     public void Awake()
     {
@@ -43,7 +49,22 @@ public class EnemyAttack : MonoBehaviour
         } 
         else
         {
-            //move from side to side
+            if(transform.position.x < -4.5)
+            {
+                right = true;
+            }
+            if (transform.position.x > 4.5)
+            {
+                right = false;
+            }
+            if (right)
+            {
+                transform.position += new Vector3(1, 0.0f, 0.0f) * AttackSpeed * Time.deltaTime;
+            }
+            else
+            {
+                transform.position += new Vector3(-1, 0.0f, 0.0f) * AttackSpeed * Time.deltaTime;
+            }
         }
     }
 
